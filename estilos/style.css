@@ -965,7 +965,7 @@ footer p {
     nav ul li.has-dropdown .dropdown {
         position: static;
         display: none;
-        background: var(--light);
+        background: var(--white);
         box-shadow: none;
         border: none;
     }
