@@ -160,6 +160,24 @@ header .container {
     padding-bottom: 7px;
 }
 
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--navy);
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
 .logo {
     display: flex;
     align-items: center;
@@ -886,18 +904,60 @@ footer p {
 @media (max-width: 768px) {
     header .container {
         flex-direction: column;
+        position: relative;
+    }
+
+    .hamburger {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    nav {
+        width: 100%;
+        background: var(--white);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        display: none;
+    }
+
+    nav.active {
+        display: block;
     }
 
     nav ul {
-        margin-top: 10px;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
+        padding: 20px 0;
+        margin: 0;
     }
 
     nav ul li {
-        margin-left: 0;
-        margin-right: 12px;
-        margin-bottom: 6px;
+        margin: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    nav ul li a {
+        padding: 15px 20px;
+        display: block;
+        border-bottom: 1px solid var(--light);
+    }
+
+    nav ul li.has-dropdown .dropdown {
+        position: static;
+        display: none;
+        background: var(--light);
+        box-shadow: none;
+        border: none;
+    }
+
+    nav ul li.has-dropdown.active .dropdown {
+        display: block;
+    }
+
+    nav ul li.has-dropdown .dropdown li a {
+        padding: 10px 30px;
+        font-size: 0.9rem;
     }
 
     .contact {

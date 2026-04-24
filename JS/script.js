@@ -27,11 +27,28 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// Función para alternar el menú en móviles (si se agrega un botón hamburguesa)
-function toggleMenu() {
-    const nav = document.querySelector('nav ul');
-    nav.classList.toggle('active');
-}
+// Menú hamburguesa para móviles
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav');
+    if (hamburger && nav) {
+        hamburger.addEventListener('click', function () {
+            nav.classList.toggle('active');
+        });
+    }
+
+    // Toggle para dropdowns en móviles
+    const dropdownLinks = document.querySelectorAll('nav ul li.has-dropdown > a');
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                const parent = this.parentElement;
+                parent.classList.toggle('active');
+            }
+        });
+    });
+});
 
 // Envío de formularios vía Formspree (sin recargar la página)
 document.addEventListener('DOMContentLoaded', function () {
