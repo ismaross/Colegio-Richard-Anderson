@@ -959,7 +959,7 @@ footer p {
         padding: 15px 20px;
         display: block;
         border-bottom: 1px solid var(--light);
-        color: var(--text);
+        color: #000000;
     }
 
     nav ul li.has-dropdown .dropdown {
@@ -977,7 +977,7 @@ footer p {
     nav ul li.has-dropdown .dropdown li a {
         padding: 10px 30px;
         font-size: 0.9rem;
-        color: var(--text);
+        color: #000000;
     }
 
     .contact {
