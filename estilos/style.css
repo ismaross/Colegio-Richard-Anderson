@@ -928,6 +928,10 @@ footer p {
         right: 10px;
     }
 
+    .logo img {
+        height: 40px;
+    }
+
     nav {
         width: 100%;
         background: var(--white);
@@ -955,6 +959,7 @@ footer p {
         padding: 15px 20px;
         display: block;
         border-bottom: 1px solid var(--light);
+        color: var(--text);
     }
 
     nav ul li.has-dropdown .dropdown {
