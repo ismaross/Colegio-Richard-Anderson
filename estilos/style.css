@@ -293,7 +293,7 @@ nav ul li.has-dropdown .dropdown li a {
 
 nav ul li.has-dropdown .dropdown li a:hover {
     background-color: var(--navy);
-    color: var(--gold);
+    color: var(--white);
     border-bottom-color: transparent;
 }
 
