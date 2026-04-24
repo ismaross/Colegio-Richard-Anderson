@@ -977,6 +977,7 @@ footer p {
     nav ul li.has-dropdown .dropdown li a {
         padding: 10px 30px;
         font-size: 0.9rem;
+        color: var(--text);
     }
 
     .contact {
