@@ -256,6 +256,7 @@ nav ul li.has-dropdown .dropdown li a {
     font-weight: normal;
     white-space: nowrap;
     font-size: 0.9rem;
+    color: #f0f0f0;
 }
 
 nav ul li.has-dropdown .dropdown li a:hover {
