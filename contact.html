@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colegio Richard Anderson - Contacto</title>
+    <link rel="stylesheet" href="estilos/style.css">
+</head>
+<body>
+    <div class="topbar">
+        <div class="container">
+            <span>✉ admisiones@richardanderson.edu.uy</span>
+        </div>
+    </div>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.jpeg" alt="Logo Colegio Richard Anderson">
+                <div class="logo-text">
+                    <span class="logo-name">Richard Anderson</span>
+                    <span class="logo-sub">Colegio Bilingüe · Desde 1933</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="has-dropdown">
+                        <a href="about.html">El Colegio ▾</a>
+                        <ul class="dropdown">
+                            <li><a href="about.html#historia">Nuestra Historia</a></li>
+                            <li><a href="about.html#mision">Misión</a></li>
+                            <li><a href="about.html#vision">Visión</a></li>
+                            <li><a href="about.html#valores">Valores</a></li>
+                            <li><a href="about.html#lema">Lema Institucional</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="academics.html">Propuesta Educativa ▾</a>
+                        <ul class="dropdown">
+                            <li><a href="academics.html#inicial">Educación Inicial</a></li>
+                            <li><a href="academics.html#primaria">Educación Primaria</a></li>
+                            <li><a href="academics.html#secundaria">Educación Secundaria</a></li>
+                            <li><a href="academics.html#ingles">Inglés y Certificaciones</a></li>
+                            <li><a href="academics.html#deportes">Deportes y Actividades</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="admisiones.html">Admisiones</a></li>
+                    <li><a href="gallery.html">Galería</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Contáctanos</h1>
+            <p>Estamos aquí para ayudarte. Consultas de admisión y más información.</p>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <div class="contact-info">
+                <h2>Información de Contacto</h2>
+                <p><strong>Sede Principal (Escuela y Liceo):</strong> Iturriaga 3535, Montevideo</p>
+                <p><strong>Educación Inicial:</strong> Luis Alberto de Herrera 1081, Montevideo</p>
+                <p><strong>Campo Deportivo:</strong> Ruta 101 km. 24.500</p>
+                <p><strong>Email:</strong> admisiones@richardanderson.edu.uy</p>
+                <p><strong>Horarios Liceo:</strong> Lunes a Viernes, 8:10 a 16:30 hs</p>
+                <p><strong>Horarios Primaria:</strong> Lunes a Viernes, 12:30 a 17:30 hs (extensión desde 9:00 hs)</p>
+            </div>
+            <div class="contact-form">
+                <h2>Solicitar Entrevista de Admisión</h2>
+                <form action="https://formspree.io/f/ismaross@gmail.com" method="POST" class="ajax-form">
+                    <input type="hidden" name="_subject" value="Consulta de Contacto — Colegio Richard Anderson">
+                    <input type="hidden" name="_language" value="es">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">Nombre: *</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido">Apellido: *</label>
+                            <input type="text" id="apellido" name="apellido" required>
+                        </div>
+                    </div>
+
+                    <label for="email">Email: *</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono">
+
+                    <label for="nivel">Nivel de interés: *</label>
+                    <select id="nivel" name="nivel" required>
+                        <option value="" disabled selected>Seleccionar nivel...</option>
+                        <option value="inicial">Educación Inicial (1–4 años)</option>
+                        <option value="primaria">Educación Primaria</option>
+                        <option value="secundaria">Educación Secundaria</option>
+                        <option value="bachillerato">Bachillerato</option>
+                    </select>
+
+                    <label for="message">Mensaje:</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+
+                    <button type="submit">Enviar consulta →</button>
+                    <p class="form-feedback" style="display:none"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Colegio Richard Anderson. Todos los derechos reservados.</p>
+            <p>Sede Principal: Iturriaga 3535, Montevideo | Educación Inicial: Luis Alberto de Herrera 1081</p>
+            <p>Email: admisiones@richardanderson.edu.uy</p>
+        </div>
+    </footer>
+
+    <script src="JS/script.js"></script>
+</body>
+</html>
