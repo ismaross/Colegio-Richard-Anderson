@@ -1,34 +1,24 @@
-// Script básico para el sitio web del colegio
-
-// Pestañas de Propuesta Educativa
 document.addEventListener('DOMContentLoaded', function () {
+
+    // Pestañas de Propuesta Educativa
     const btns = document.querySelectorAll('.tab-btn');
-    if (!btns.length) return;
-
-    function activateTab(tabId) {
-        btns.forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-        const btn = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
-        const panel = document.getElementById(tabId);
-        if (btn && panel) {
-            btn.classList.add('active');
-            panel.classList.add('active');
+    if (btns.length) {
+        function activateTab(tabId) {
+            btns.forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            const btn = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+            const panel = document.getElementById(tabId);
+            if (btn && panel) {
+                btn.classList.add('active');
+                panel.classList.add('active');
+            }
         }
+        btns.forEach(btn => btn.addEventListener('click', () => activateTab(btn.dataset.tab)));
+        const hash = window.location.hash.slice(1);
+        if (hash && document.getElementById(hash)) activateTab(hash);
     }
 
-    btns.forEach(btn => {
-        btn.addEventListener('click', () => activateTab(btn.dataset.tab));
-    });
-
-    // Activar pestaña según el hash de la URL (ej: academics.html#primaria)
-    const hash = window.location.hash.slice(1);
-    if (hash && document.getElementById(hash)) {
-        activateTab(hash);
-    }
-});
-
-// Menú hamburguesa para móviles
-document.addEventListener('DOMContentLoaded', function () {
+    // Menú hamburguesa para móviles
     const hamburger = document.querySelector('.hamburger');
     const nav = document.querySelector('nav');
     if (hamburger && nav) {
@@ -37,27 +27,22 @@ document.addEventListener('DOMContentLoaded', function () {
             hamburger.classList.toggle('active');
         });
     }
-
-    // Toggle para dropdowns en móviles
-    const dropdownLinks = document.querySelectorAll('nav ul li.has-dropdown > a');
-    dropdownLinks.forEach(link => {
+    document.querySelectorAll('nav ul li.has-dropdown > a').forEach(link => {
         link.addEventListener('click', function (e) {
             if (window.innerWidth <= 768) {
                 e.preventDefault();
-                const parent = this.parentElement;
-                parent.classList.toggle('active');
+                this.parentElement.classList.toggle('active');
             }
         });
     });
-});
 
-// Envío de formularios vía Formspree (sin recargar la página)
-document.addEventListener('DOMContentLoaded', function () {
+    // Envío de formularios vía Formspree
     document.querySelectorAll('.ajax-form').forEach(function (form) {
         form.addEventListener('submit', async function (e) {
             e.preventDefault();
             const feedback = form.querySelector('.form-feedback');
             const btn = form.querySelector('button[type="submit"]');
+            if (!btn || !feedback) return;
             btn.disabled = true;
             btn.textContent = 'Enviando...';
             try {
@@ -83,33 +68,52 @@ document.addEventListener('DOMContentLoaded', function () {
             btn.textContent = 'Enviar consulta →';
         });
     });
-});
 
-// Función para hacer la galería interactiva (ampliar imagen al hacer clic)
-document.addEventListener('DOMContentLoaded', function() {
+    // Lightbox para la galería
     const galleryImages = document.querySelectorAll('.gallery-grid img');
-    galleryImages.forEach(img => {
-        img.addEventListener('click', function() {
-            // Aquí se podría abrir un modal, pero por simplicidad, solo un alert
-            alert('Imagen: ' + img.alt);
+    if (galleryImages.length) {
+        const overlay = document.createElement('div');
+        overlay.style.cssText = 'display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;align-items:center;justify-content:center;cursor:zoom-out';
+        const lightboxImg = document.createElement('img');
+        lightboxImg.style.cssText = 'max-width:90vw;max-height:90vh;border-radius:6px;box-shadow:0 4px 32px rgba(0,0,0,.6)';
+        overlay.appendChild(lightboxImg);
+        document.body.appendChild(overlay);
+
+        lightboxImg.onerror = function () { overlay.style.display = 'none'; };
+
+        galleryImages.forEach(img => {
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', function () {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                overlay.style.display = 'flex';
+            });
         });
-    });
-});
 
-// Animación simple para las secciones al cargar la página
-document.addEventListener('DOMContentLoaded', function() {
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'opacity 0.5s, transform 0.5s';
-    });
+        overlay.addEventListener('click', function () { overlay.style.display = 'none'; });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') overlay.style.display = 'none';
+        });
+    }
 
-    // Animar las secciones después de un pequeño delay
-    setTimeout(() => {
+    // Animación de entrada para secciones al hacer scroll
+    if ('IntersectionObserver' in window) {
+        const sections = document.querySelectorAll('section:not(.hero)');
         sections.forEach(section => {
-            section.style.opacity = '1';
-            section.style.transform = 'translateY(0)';
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s, transform 0.5s';
         });
-    }, 100); // Delay de 100ms para que se vea la transición
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        sections.forEach(section => observer.observe(section));
+    }
+
 });

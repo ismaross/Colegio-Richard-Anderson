@@ -7,6 +7,7 @@
     --white: #FFFFFF;
     --light: #F0F3FA;
     --text:  #222222;
+    --dot-pattern: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1.5' fill='white' fill-opacity='0.07'/%3E%3C/svg%3E");
 }
 
 /* Estilos generales */
@@ -300,7 +301,7 @@ nav ul li.has-dropdown .dropdown li a:hover {
 /* Hero */
 .hero {
     background:
-        url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1.5' fill='white' fill-opacity='0.07'/%3E%3C/svg%3E") repeat,
+        var(--dot-pattern) repeat,
         linear-gradient(155deg, #080f2e 0%, #1C2B6E 45%, #1e358a 100%);
     color: var(--white);
     padding: 48px 0;
@@ -353,13 +354,6 @@ nav ul li.has-dropdown .dropdown li a:hover {
 .hero-logo-card img {
     width: min(240px, 100%);
     height: auto;
-}
-
-.hero-image {
-    max-width: 100%;
-    height: auto;
-    margin-top: 20px;
-    border-radius: 6px;
 }
 
 @media (max-width: 900px) {
@@ -826,7 +820,7 @@ ul li strong {
 
 .contact-info {
     background:
-        url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1.5' fill='white' fill-opacity='0.07'/%3E%3C/svg%3E") repeat,
+        var(--dot-pattern) repeat,
         linear-gradient(160deg, #0d1840 0%, var(--navy) 60%, #1e3070 100%);
     color: var(--white);
     border-radius: 6px;
@@ -901,7 +895,7 @@ ul li strong {
 /* Footer */
 footer {
     background:
-        url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1.5' fill='white' fill-opacity='0.07'/%3E%3C/svg%3E") repeat,
+        var(--dot-pattern) repeat,
         linear-gradient(135deg, #060c24 0%, var(--navy-dark) 55%, #132040 100%);
     color: var(--white);
     text-align: center;

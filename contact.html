@@ -20,6 +20,7 @@
     <meta property="twitter:title" content="Colegio Richard Anderson - Contacto">
     <meta property="twitter:description" content="Contacta al Colegio Richard Anderson. Sedes en Montevideo.">
     <meta property="twitter:image" content="https://richardanderson.edu.uy/images/logo.jpeg">
+    <link rel="preload" as="image" href="images/logo.jpeg">
     <link rel="stylesheet" href="estilos/style.css">
 </head>
 <body>
@@ -31,7 +32,7 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="images/logo.jpeg" alt="Logo Colegio Richard Anderson">
+                <img src="images/logo.jpeg" alt="Logo Colegio Richard Anderson" width="696" height="832">
                 <div class="logo-text">
                     <span class="logo-name">Richard Anderson</span>
                     <span class="logo-sub">Colegio Bilingüe · Desde 1933</span>
@@ -123,7 +124,7 @@
                     </select>
 
                     <label for="message">Mensaje:</label>
-                    <textarea id="message" name="message" rows="4"></textarea>
+                    <textarea id="message" name="mensaje" rows="4"></textarea>
 
                     <button type="submit">Enviar consulta →</button>
                     <p class="form-feedback" style="display:none"></p>
@@ -140,6 +141,6 @@
         </div>
     </footer>
 
-    <script src="JS/script.js"></script>
+    <script src="JS/script.js" defer></script>
 </body>
 </html>
